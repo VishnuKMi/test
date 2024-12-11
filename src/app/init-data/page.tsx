@@ -30,9 +30,8 @@ export default function InitDataPage() {
   const initDataState = useSignal(initData.state);
   console.log("initDataState", initDataState)
 
-  const chat = initDataState?.chat?.title
-  const chatType = initDataState?.chatType
-  console.log("CHAT", [chat, chatType])
+  const chat = initDataState?.chat
+  console.log("CHAT", chat)
 
   const initDataRows = useMemo<DisplayDataRow[] | undefined>(() => {
     if (!initDataState || !initDataRaw) {
@@ -62,7 +61,6 @@ export default function InitDataPage() {
       { title: 'chat_type', value: chatType },
       { title: 'chat_instance', value: chatInstance },
       { title: 'chat', value: chat },
-      { title: 'chat-type', value: chatType }
     ];
   }, [initDataState, initDataRaw]);
 
