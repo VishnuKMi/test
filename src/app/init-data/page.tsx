@@ -61,6 +61,8 @@ export default function InitDataPage() {
       { title: 'start_param', value: startParam },
       { title: 'chat_type', value: chatType },
       { title: 'chat_instance', value: chatInstance },
+      { title: 'chat', value: chat },
+      { title: 'chat-type', value: chatType }
     ];
   }, [initDataState, initDataRaw]);
 
