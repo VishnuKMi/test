@@ -28,6 +28,11 @@ function getUserRows(user: User): DisplayDataRow[] {
 export default function InitDataPage() {
   const initDataRaw = useSignal(initData.raw);
   const initDataState = useSignal(initData.state);
+  console.log("initDataState", initDataState)
+
+  const chat = initDataState?.chat?.title
+  const chatType = initDataState?.chatType
+  console.log("CHAT", [chat, chatType])
 
   const initDataRows = useMemo<DisplayDataRow[] | undefined>(() => {
     if (!initDataState || !initDataRaw) {
@@ -111,10 +116,10 @@ export default function InitDataPage() {
   return (
     <Page>
       <List>
-        <DisplayData header={'Init Data'} rows={initDataRows}/>
-        {userRows && <DisplayData header={'User'} rows={userRows}/>}
-        {receiverRows && <DisplayData header={'Receiver'} rows={receiverRows}/>}
-        {chatRows && <DisplayData header={'Chat'} rows={chatRows}/>}
+        <DisplayData header={'Init Data'} rows={initDataRows} />
+        {userRows && <DisplayData header={'User'} rows={userRows} />}
+        {receiverRows && <DisplayData header={'Receiver'} rows={receiverRows} />}
+        {chatRows && <DisplayData header={'Chat'} rows={chatRows} />}
       </List>
     </Page>
   );
