@@ -30,7 +30,7 @@ export default function InitDataPage() {
   const initDataState = useSignal(initData.state);
   console.log("initDataState", initDataState)
 
-  const chat = initDataState?.chat
+  const chat = initDataState?.chat?.username
   console.log("CHAT", chat)
 
   const initDataRows = useMemo<DisplayDataRow[] | undefined>(() => {
