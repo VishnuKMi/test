@@ -8,9 +8,16 @@ import { LocaleSwitcher } from '@/components/LocaleSwitcher/LocaleSwitcher';
 import { Page } from '@/components/Page';
 
 import tonSvg from './_assets/ton.svg';
+import { useTWAEvent } from '@tonsolutions/telemetree-react';
 
 export default function Home() {
   const t = useTranslations('i18n');
+
+  const builder = useTWAEvent();
+  builder.track('transfer', {
+    amount: 1000,
+    method: 'TON',
+  });
 
   return (
     <Page back={false}>
@@ -54,7 +61,7 @@ export default function Home() {
           </Link>
         </Section>
         <Section header={t('header')} footer={t('footer')}>
-          <LocaleSwitcher/>
+          <LocaleSwitcher />
         </Section>
       </List>
     </Page>

@@ -8,6 +8,7 @@ import { I18nProvider } from '@/core/i18n/provider';
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import 'normalize.css/normalize.css';
 import './_assets/globals.css';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Your Application Title Goes Here',
@@ -19,6 +20,9 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 
   return (
     <html lang={locale}>
+    <head>
+      <Script src="https://telegram.org/js/telegram-web-app.js"></Script>
+    </head>
     <body>
       <I18nProvider>
         <Root>

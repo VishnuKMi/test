@@ -17,6 +17,8 @@ import { useDidMount } from '@/hooks/useDidMount';
 import { useClientOnce } from '@/hooks/useClientOnce';
 import { setLocale } from '@/core/i18n/locale';
 import { init } from '@/core/init';
+import { TrackGroups, TwaAnalyticsProvider } from '@tonsolutions/telemetree-react';
+import type { TelegramWebAppData } from '@tonsolutions/telemetree-react';
 
 import './styles.css';
 
@@ -45,15 +47,33 @@ function RootInner({ children }: PropsWithChildren) {
     initDataUser && setLocale(initDataUser.languageCode);
   }, [initDataUser]);
 
+  const telegramWebAppData: TelegramWebAppData = {
+    query_id: initData?.queryId,
+    user: initData?.user,
+    chat_type: initData?.chatType,
+    chat_instance: initData?.chatInstance,
+    start_param: initData?.startParam,
+    auth_date: initData?.authDate,
+    hash: initData?.hash,
+    platform: lp?.platform,
+  };
+
   return (
-    <TonConnectUIProvider manifestUrl="/tonconnect-manifest.json">
-      <AppRoot
-        appearance={isDark ? 'dark' : 'light'}
-        platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
-      >
-        {children}
-      </AppRoot>
-    </TonConnectUIProvider>
+    <TwaAnalyticsProvider
+      projectId="42d95b0a-9495-472e-b2bb-7b0dc7c27352"
+      apiKey="9f97c59a-8861-4d27-8244-f2eb2d05822f"
+      trackGroup={TrackGroups.HIGH}
+      telegramWebAppData={telegramWebAppData}
+    >
+      <TonConnectUIProvider manifestUrl="/tonconnect-manifest.json">
+        <AppRoot
+          appearance={isDark ? 'dark' : 'light'}
+          platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
+        >
+          {children}
+        </AppRoot>
+      </TonConnectUIProvider>
+    </TwaAnalyticsProvider>
   );
 }
 
@@ -65,7 +85,7 @@ export function Root(props: PropsWithChildren) {
 
   return didMount ? (
     <ErrorBoundary fallback={ErrorPage}>
-      <RootInner {...props}/>
+      <RootInner {...props} />
     </ErrorBoundary>
   ) : <div className="root__loading">Loading</div>;
 }

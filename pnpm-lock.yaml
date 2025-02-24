@@ -17,6 +17,9 @@ importers:
       '@tonconnect/ui-react':
         specifier: ^2.0.5
         version: 2.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tonsolutions/telemetree-react':
+        specifier: ^1.2.14
+        version: 1.2.14(@tonconnect/ui-react@2.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       eruda:
         specifier: ^3.0.1
         version: 3.0.1
@@ -455,6 +458,13 @@ packages:
   '@tonconnect/ui@2.0.5':
     resolution: {integrity: sha512-AuVtBqX450lJyJtrJDhBPwPzkhm10QCsnS1/p2CLkzzcMH5b5o50oVp5yuRWw/1eIwJZSLjVplkgA/JjMAlmsA==}
 
+  '@tonsolutions/telemetree-react@1.2.14':
+    resolution: {integrity: sha512-5iqHJq8kM9Fb/SfA4en+jYDgJinxorvdHQLiK3U8NJYqb/6Il2a6FqyCfso8Ds7o4USl6KbFyY4WffdpGSBqjA==}
+    peerDependencies:
+      '@tonconnect/ui-react': ^2.0.9
+      react: '>=17.0.0'
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   '@twa-dev/types@7.0.0':
     resolution: {integrity: sha512-LBnMklxORuXd/ypv9gFKcQVNJkCktkeuU+2V6B5Ww7dcxDCoYBAKkNnIwEQ3cShq+cxTi96jC/CqWhgDMQ7AXQ==}
 
@@ -682,6 +692,9 @@ packages:
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
+
+  crypto-js@4.2.0:
+    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
 
   cssesc@3.0.0:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
@@ -1235,6 +1248,9 @@ packages:
   js-yaml@4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
+
+  jsencrypt@3.3.2:
+    resolution: {integrity: sha512-arQR1R1ESGdAxY7ZheWr12wCaF2yF47v5qpB76TtV64H1pyGudk9Hvw8Y9tb/FiTIaaTRUyaSnm5T/Y53Ghm/A==}
 
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
@@ -2313,6 +2329,14 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  '@tonsolutions/telemetree-react@1.2.14(@tonconnect/ui-react@2.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@tonconnect/ui-react': 2.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      crypto-js: 4.2.0
+      jsencrypt: 3.3.2
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@twa-dev/types@7.0.0': {}
 
   '@types/json5@0.0.29': {}
@@ -2582,6 +2606,8 @@ snapshots:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  crypto-js@4.2.0: {}
 
   cssesc@3.0.0: {}
 
@@ -3317,6 +3343,8 @@ snapshots:
   js-yaml@4.1.0:
     dependencies:
       argparse: 2.0.1
+
+  jsencrypt@3.3.2: {}
 
   json-buffer@3.0.1: {}
 
